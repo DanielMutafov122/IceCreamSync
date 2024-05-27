@@ -1,9 +1,6 @@
 using Domain.Repositories.Interfaces;
 using Domain.Repositories;
 using Domain;
-using IceCreamApp.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using Service.Interfaces;

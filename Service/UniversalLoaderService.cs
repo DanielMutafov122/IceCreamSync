@@ -1,7 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Repositories.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
 using Models.Responses;
 using Newtonsoft.Json;
 using Service.Interfaces;
