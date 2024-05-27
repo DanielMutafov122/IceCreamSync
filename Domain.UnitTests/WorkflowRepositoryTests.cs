@@ -16,7 +16,7 @@ public class WorkflowRepositoryTests
     }
 
     [Fact]
-    public async Task Add_ShouldAddWorkflow()
+    public async Task AddShouldAddWorkflow()
     {
         using (var context = new AppDbContext(_options))
         {
@@ -34,7 +34,7 @@ public class WorkflowRepositoryTests
     }
 
     [Fact]
-    public async Task Update_ShouldUpdateWorkflow()
+    public async Task UpdateShouldUpdateWorkflow()
     {
         using (var context = new AppDbContext(_options))
         {
@@ -56,7 +56,7 @@ public class WorkflowRepositoryTests
     }
 
     [Fact]
-    public async Task AddRange_ShouldAddWorkflows()
+    public async Task AddRangeShouldAddWorkflows()
     {
         using (var context = new AppDbContext(_options))
         {
@@ -79,7 +79,7 @@ public class WorkflowRepositoryTests
     }
 
     [Fact]
-    public async Task GetAll_ShouldReturnAllWorkflows()
+    public async Task GetAllShouldReturnAllWorkflows()
     {
         using (var context = new AppDbContext(_options))
         {
@@ -104,7 +104,7 @@ public class WorkflowRepositoryTests
     }
 
     [Fact]
-    public async Task GetById_ShouldReturnWorkflow()
+    public async Task GetByIdShouldReturnWorkflow()
     {
         using (var context = new AppDbContext(_options))
         {
@@ -124,7 +124,7 @@ public class WorkflowRepositoryTests
     }
 
     [Fact]
-    public async Task Remove_ShouldRemoveWorkflow()
+    public async Task RemoveShouldRemoveWorkflow()
     {
         using (var context = new AppDbContext(_options))
         {
