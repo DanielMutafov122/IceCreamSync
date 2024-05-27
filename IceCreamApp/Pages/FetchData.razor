@@ -1,0 +1,71 @@
+﻿@page "/workflow"
+
+<PageTitle>Workflow</PageTitle>
+
+@using Models.Responses
+@using Service.Interfaces
+@inject IUniversalLoaderService Service
+
+<h1>Workflows</h1>
+@if (workflows == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Workflow Id</th>
+                <th>Workflow Name</th>
+                <th>Is Active</th>
+                <th>Is Running</th>
+                <th>Multi Exec Behavior</th>
+                <th>Run</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var workflow in workflows)
+            {
+                <tr>
+                    <td>@workflow.Id</td>
+                    <td>@workflow.Name</td>
+                    <td>@workflow.IsActive</td>
+                    <td>true</td>
+                    <td>@workflow.MultiExecBehavior</td>
+                    <td>
+                        <button id="abc" class="tab-button"
+                                @onclick="@(() => Run(workflow.Id))">
+                            Run
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<Popup @ref="popupRef" />
+@code {
+    private List<WorkflowsResponse>? workflows;
+    private Popup popupRef;
+
+    protected override async Task OnInitializedAsync()
+    {
+        workflows = await Service.GetWorkFlows();
+    }
+
+    private async Task Run(int id)
+    {
+        var result = await Service.RunWorkflow(id);
+
+        if (result == 200)
+        {
+            popupRef.Show($"Run for workflow:{id} was successful");
+        }
+        else
+        {
+            popupRef.Show($"Run for workflow:{id} was not successful");
+        }
+    }
+}
