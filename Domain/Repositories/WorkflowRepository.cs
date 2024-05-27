@@ -9,7 +9,6 @@ public class WorkflowRepository : IWorkflowRepository
     private readonly AppDbContext _context;
     public WorkflowRepository(AppDbContext context)
     {
-
         _context = context;
     }
 
@@ -21,7 +20,7 @@ public class WorkflowRepository : IWorkflowRepository
 
     public async Task Update(Workflow entity)
     {
-        var workflow = _context.Workflows.AsNoTracking().FirstOrDefault(o => o.Id == entity.Id);
+        var workflow = _context.Workflows.FirstOrDefault(o => o.Id == entity.Id);
         if (workflow != null)
         {
             workflow.Name = entity.Name;
