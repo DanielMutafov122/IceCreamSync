@@ -10,6 +10,6 @@ Welcome to your new app.
 @code {
     protected override async Task OnInitializedAsync()
     {
-        RecurringJob.AddOrUpdate(() => Service.GetWorkFlows(), "*/1 * * * *");
+        RecurringJob.AddOrUpdate(() => Service.GetWorkFlows(), "*/30 * * * *");
     }
 }
